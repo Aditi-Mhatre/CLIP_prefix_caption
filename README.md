@@ -46,35 +46,6 @@ In our work, we use the [CLIP](https://github.com/openai/CLIP) model, which was 
  </table>
 
 
-## Conceptual Captions Examples
-
-<table>
-  <tr>
-    <td><img src="Images/CONCEPTUAL_01.jpg" ></td>
-    <td><img src="Images/CONCEPTUAL_02.jpg" ></td>
-    <td><img src="Images/CONCEPTUAL_03.jpg" ></td>
-  </tr>
-  <tr>
-    <td>3D render of a man holding a globe.</td>
-     <td>Students enjoing the cherry blossoms</td>
-     <td>Green leaf of lettuce on a white plate.</td>
-  </tr>
- </table>
- 
- <table>
-  <tr>
-    <td><img src="Images/CONCEPTUAL_04.jpg" ></td>
-    <td><img src="Images/CONCEPTUAL_05.jpg" ></td>
-    <td><img src="Images/CONCEPTUAL_06.jpg" ></td>
-  </tr>
-  <tr>
-    <td>The hotel and casino on the waterfront. </td>
-     <td>The triangle is a symbol of the soul.</td>
-     <td>Cartoon boy in the bath.</td>
-  </tr>
- </table>
-
-
 ## Inference Notebooks
 To help visualize the results we provide a Colab notebook found in `notebooks/clip_prefix_captioning_inference.ipynb`.   
 The notebook will download the pretrained models and run inference on a sample images or 
@@ -131,11 +102,6 @@ python parse_coco.py --clip_model_type RN50x4
 python train.py --only_prefix --data ./data/coco/oscar_split_RN50x4_train.pkl --out_dir ./coco_train/ --mapping_type transformer  --num_layres 8 --prefix_length 40 --prefix_length_clip 40 --is_rn
 ```
 
-## Conceptual training
-
-Download the .TSV train/val files from [Conceptual Captions](https://ai.google.com/research/ConceptualCaptions/download) and place them under <data_root> directory.
-
-Download the images and extract CLIP features using (outputs are `<data_root>/conceptual_clip_ViT-B_32_train.pkl` and  `<data_root>/conceptual_clip_ViT-B_32_val.pkl`):
 ```
 python parse_conceptual.py --clip_model_type ViT-B/32 --data_root <data_root> --num_threads 16
 ```
